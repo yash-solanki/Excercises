@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Task</title>
+</head>
+<body>
+	<script>
+		let i;
+		let MyArr = [
+			1,
+			2,
+			3,
+			"Yash",
+			{
+				a:{
+					b:function(){
+						return null;
+					}
+				}
+			} 
+		];
+		var obj=[];
+		let res=[];
+		let count = 1;
+		for ( i = 0 ; i < MyArr.length ; i++ ) {
+			if ( typeof MyArr[i] == "number" ){
+				obj["Key"]=MyArr[i];
+				obj["Value"]=MyArr[i] + count;
+				res.push(obj);
+				obj = {};
+			}
+			else if ( typeof MyArr[i] == "string" ){
+				obj["Key"]=MyArr[i];
+				obj["name"]=MyArr[i];
+				res.push(obj);
+				obj = {};
+			}
+			else if ( typeof MyArr[i] == "object" ){
+				alert("object");
+				for ( a in MyArr[i] ){
+					alert(a);	
+					for ( j in MyArr[i][a] ){
+						alert(j);
+						alert(MyArr[i][a][j]);
+						obj["key"]=a;
+						obj[j]=MyArr[i][a][j];
+						res.push(obj);
+						obj = {};
+					}
+
+				}
+				// alert( Object.keys(MyArr[i]) );
+			
+			}
+			count++;
+		}
+		console.log(res);
+
+
+	</script>
+</body>
+</html>
